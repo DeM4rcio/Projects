@@ -1,0 +1,51 @@
+:root {
+    --cor-primaria: rgb(0, 146, 136)
+}
+
+*{
+    box-sizing: border-box;
+    outline: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--cor-primaria);
+    font-family: sans-serif;
+    justify-content: center;
+    display: flex;
+    
+}
+
+.wrapper{
+    background-color: antiquewhite;
+    width: 600px;
+    margin: 70px auto;
+    padding: 20px;
+    border-radius: 20px;
+    height: 500px;
+}
+
+.screen{
+    font-size: 35px;
+    overflow: auto;
+    border-radius: 16px;
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: right;
+}
+
+.calc-button-row{
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+
+.calc-button{
+    border-radius: 16px;
+    border: 1px;
+    font-size: 30px;
+    height: 50px;
+    flex-basis: 20%;
+    background-color: white;
+}
