@@ -1,0 +1,15 @@
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\bin\Debug\net6.0\LojaVarejo.exe
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\bin\Debug\net6.0\LojaVarejo.deps.json
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\bin\Debug\net6.0\LojaVarejo.runtimeconfig.json
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\bin\Debug\net6.0\LojaVarejo.dll
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\bin\Debug\net6.0\LojaVarejo.pdb
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.csproj.AssemblyReference.cache
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.AssemblyInfoInputs.cache
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.AssemblyInfo.cs
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.csproj.CoreCompileInputs.cache
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.dll
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\refint\LojaVarejo.dll
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.pdb
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\LojaVarejo.genruntimeconfig.cache
+C:\workspace\C#\Projetos\LojaVarejo\LojaVarejo\obj\Debug\net6.0\ref\LojaVarejo.dll
