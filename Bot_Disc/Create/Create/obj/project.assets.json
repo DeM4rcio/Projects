@@ -4461,11 +4461,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\workspace\\C#\\Projetos\\Bot_Disc\\Create\\Create\\Create.csproj",
+      "projectUniqueName": "C:\\workspace\\Projetos\\Bot_Disc\\Create\\Create\\Create.csproj",
       "projectName": "Create",
-      "projectPath": "C:\\workspace\\C#\\Projetos\\Bot_Disc\\Create\\Create\\Create.csproj",
+      "projectPath": "C:\\workspace\\Projetos\\Bot_Disc\\Create\\Create\\Create.csproj",
       "packagesPath": "C:\\Users\\marcio\\.nuget\\packages\\",
-      "outputPath": "C:\\workspace\\C#\\Projetos\\Bot_Disc\\Create\\Create\\obj\\",
+      "outputPath": "C:\\workspace\\Projetos\\Bot_Disc\\Create\\Create\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

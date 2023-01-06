@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y6D+84ginPcIzj7lTKh+EvMbXsPeePLh4IOwf42Ckj6zR+Miq7Ltx67Msy1bSJM6tZ52o7+67lCoOuiVJp8IJg==",
+  "dgSpecHash": "G9pnOF76L3+gp+YRHW8XaWd53fn9u5a29t2KduW7XLXimvUzAITAI6qW46EHTzUZJLsmRYNIHiHfblNo2ztWBA==",
   "success": true,
-  "projectFilePath": "C:\\workspace\\C#\\Projetos\\Bot_Disc\\Create\\Create\\Create.csproj",
+  "projectFilePath": "C:\\workspace\\Projetos\\Bot_Disc\\Create\\Create\\Create.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marcio\\.nuget\\packages\\concurrenthashset\\1.1.0\\concurrenthashset.1.1.0.nupkg.sha512",
     "C:\\Users\\marcio\\.nuget\\packages\\dsharpplus\\4.3.0\\dsharpplus.4.3.0.nupkg.sha512",

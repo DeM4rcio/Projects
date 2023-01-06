@@ -1,57 +1,33 @@
 ﻿using System;
-using System.Reflection;
 using System.Threading.Tasks;
-using Create;
 using DSharpPlus;
-using DSharpPlus.CommandsNext;
-using DSharpPlus.EventArgs;
-using Microsoft.Extensions.Logging;
 
 namespace MyFirstBot
 {
     class Program
     {
-        private DiscordClient _client;
-        static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
-        
-
-        public async Task MainAsync()
+        static void Main(string[] args)
         {
-            DiscordConfiguration discord = new DiscordConfiguration()
-            {
-                Token = "MTA1NDc3MDE4ODU3NjM1ODQzMA.GBjku0.Hvt3USTZqxn1gLeBxgE664NAhwJh8mNvuM63S0",
-                TokenType = TokenType.Bot,
-                ReconnectIndefinitely = true,
-                GatewayCompressionLevel = GatewayCompressionLevel.None,
-                AutoReconnect = true,
-                MinimumLogLevel = LogLevel.Debug,
-            };
-
-            _client = new DiscordClient(discord);
-            _client.Ready += Client_Ready;
-            _client.ClientErrored += Client_ClientError;
-
-            string[] prefix = new string[1];
-            prefix[0] = "!";
-
-            CommandsNextExtension cnt = _client.UseCommandsNext(new CommandsNextConfiguration()
-            {
-                StringPrefixes = prefix,
-                EnableDms = false,
-                CaseSensitive = true,
-            });
-
-            cnt.CommandExecuted += Cnt_CommandExecute;
-
-            await _client.ConnectAsync();
-            await Task.Delay(-1);
+            MainAsync().GetAwaiter().GetResult();
         }
 
-        private Task Client_Ready (ReadyEventArgs e)
+        static async Task MainAsync()
         {
-            e.Client.DebugerLogger.LogMessage(LogLevel.Info, "HI!!", "Cliente pronto para processar eventos.", DateTime.Now);
-            _
+            var discord = new DiscordClient(new DiscordConfiguration()
+            {
+                Token = "MTA1NDc3MDE4ODU3NjM1ODQzMA.GRijRs.K0lbR5b1FY-ZQ5lYmoF1w5ILB-2SdIzNTiaUWE",
+                TokenType = TokenType.Bot
+            });
 
+            discord.MessageCreated += async (s, e) =>
+            {
+                if (e.Message.Content.ToLower().StartsWith("ping"))
+                    await e.Message.RespondAsync("pong!");
+
+            };
+
+            await discord.ConnectAsync();
+            await Task.Delay(-1);
         }
     }
 }

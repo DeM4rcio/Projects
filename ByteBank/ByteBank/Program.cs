@@ -9,11 +9,7 @@ using System.Threading.Tasks;
 namespace Main
     {
     class Program
-    {
-
-
-        
-      
+    {  
 
         static void RegistrarNovoUsuario(List<string> cpfs, List<string> titulares, List<string> senhas, List<double> saldos)
         {
@@ -128,6 +124,7 @@ namespace Main
                             Console.WriteLine("Operação realizada com sucesso");
                         }
                         break;
+                 
                 }
 
             } while (escolha != 0);
