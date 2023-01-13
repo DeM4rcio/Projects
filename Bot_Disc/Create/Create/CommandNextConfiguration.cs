@@ -1,9 +1,7 @@
 ﻿namespace MyFirstBot
 {
-    internal class CommandNextConfiguration
+    public class BOT
     {
-        public CommandNextConfiguration()
-        {
-        }
+        public async 
     }
 }

@@ -27,6 +27,7 @@ namespace Main
             Console.Write("Digite o cpf: ");
             string cpfParaDeletar = Console.ReadLine();
             int indexParaDeletar = cpfs.FindIndex(cpf => cpf == cpfParaDeletar);
+            Console.WriteLine(indexParaDeletar);
 
             if (indexParaDeletar == -1)
             {
@@ -86,49 +87,112 @@ namespace Main
             Console.WriteLine($"Saldo de sua conta é de: {saldos[indexParaApresentar]} R$");
         }
 
-        static void Operacoes(List<string> cpfs, List<double> saldos)
+        static void Operacoes(List<string> cpfs, List<double> saldos, List<string> titulares, List<string> senhas)
         {
-            Console.Write("Digite o cpf: ");
+            Console.Write("Digite o seu cpf: ");
             string cpfParaApresentar = Console.ReadLine();
+            Console.Write("Digite sua senha: ");
+            string senha = Console.ReadLine();
             int indexParaApresentar = cpfs.FindIndex(cpf => cpf == cpfParaApresentar);
-            int escolha;
-            do
+            if(indexParaApresentar == -1 || senha != senhas[indexParaApresentar])
             {
-                Console.WriteLine("=============");
-                Console.WriteLine("1 - Fazer depósito");
-                Console.WriteLine("2 - Fazer saque");
-                Console.WriteLine("0 - Encerrar a operação");
-                Console.Write("Digite a operação desejada:");
-                escolha = int.Parse(Console.ReadLine());
-                Console.WriteLine("=============");
+                Console.WriteLine("CPF ou Senha incorreta. Tente novamente.");
                 
 
-                switch(escolha)
+            }
+            else
+            {
+                Console.WriteLine($"Seja Bem-Vindo {titulares[indexParaApresentar]} ao ByteBank!");
+                int escolha;
+                do
                 {
-                    case 1:
-                        double valorDeposito;
-                        Console.Write("O depósito será com o valor de: ");
-                        valorDeposito = double.Parse(Console.ReadLine());
-                        saldos[indexParaApresentar] += valorDeposito;
-                        break;
-                    case 2:
-                        double valorSaque;
-                        Console.Write("O saque será com o valor de: ");
-                        valorSaque = double.Parse(Console.ReadLine());
-                        if(valorSaque > saldos[indexParaApresentar])
-                        {
-                            Console.WriteLine("Saldo Insuficiente");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Operação realizada com sucesso");
-                        }
-                        break;
-                 
-                }
+                    Console.WriteLine("=============");
+                    Console.WriteLine("1 - Fazer depósito");
+                    Console.WriteLine("2 - Fazer saque");
+                    Console.WriteLine("3 - Fazer Trasferência");
+                    Console.WriteLine("4 - Visualizar Saldo em conta");
+                    Console.WriteLine("0 - Encerrar a operação");
+                    Console.Write("Digite a operação desejada:");
+                    escolha = int.Parse(Console.ReadLine());
+                    Console.WriteLine("=============");
 
-            } while (escolha != 0);
+
+                    switch (escolha)
+                    {
+                        case 1:
+                            double valorDeposito;
+                            Console.Write("O depósito será com o valor de: ");
+                            valorDeposito = double.Parse(Console.ReadLine());
+                            saldos[indexParaApresentar] += valorDeposito;
+                            Console.WriteLine("Operação realizada com sucesso!");
+                            break;
+                        case 2:
+                            double valorSaque;
+                            Console.Write("O saque será com o valor de: ");
+                            valorSaque = double.Parse(Console.ReadLine());
+                            if (valorSaque > saldos[indexParaApresentar])
+                            {
+                                Console.WriteLine("Saldo Insuficiente");
+                            }
+                            else
+                            {
+                                saldos[indexParaApresentar] -= valorSaque;
+                                Console.WriteLine("Operação realizada com sucesso!");
+                            }
+                            break;
+                        case 3:
+                           
+                                
+                             Console.Write("Digite o CPF da conta para a trasferência: ");
+
+                             string cpftrasfer = Console.ReadLine();
+                             int condicaoTrasfer = cpfs.FindIndex(cpf => cpf == cpftrasfer);
+                             if(condicaoTrasfer == -1)
+                            {
+                                Console.WriteLine("CPF não encontrado");
+
+                            }
+                            else
+                            {
+                                int indexParaTransfer = cpfs.FindIndex(cpf => cpf == cpftrasfer);
+                                Console.Write("Insira o valor desejado para a trasferência: ");
+                                double valorTrasnfer = double.Parse(Console.ReadLine());
+
+                                
+
+                                if (saldos[indexParaApresentar] < valorTrasnfer)
+                                {
+                                    Console.WriteLine("Saldo Insuficiente");
+                                }
+                                else
+                                {
+                                    saldos[indexParaApresentar] -= valorTrasnfer;
+
+                                    saldos[indexParaTransfer] += valorTrasnfer;
+
+                                    Console.WriteLine("Operação realizada com sucesso!");
+                                }
+
+                            }
+                             break;
+                            case 4:
+                            Console.WriteLine($"O valor em conta é: {saldos[indexParaApresentar]}R$");
+                      break;
+
+
+
+
+
+
+
+                            
+
+                    }
+
+                } while (escolha != 0);
+            }
         }
+            
         static void Main(string[] args)
         {
             Operacoes p = new Operacoes();
@@ -139,80 +203,74 @@ namespace Main
             List<double> saldos = new List<double>();
 
             int option;
+            int usuario;
 
-            do
+            Console.WriteLine("Qual tipo de conta?");
+            Console.Write("1 - Cliente" + " " + "2 - Funcionário");
+
+            usuario = int.Parse(Console.ReadLine());
+            if (usuario == 1)
             {
-                Console.WriteLine("1 - Inserir novo usuário");
-                Console.WriteLine("2 - Deletar um usuário");
-                Console.WriteLine("3 - Listar todas as contas registradas");
-                Console.WriteLine("4 - Detalhes de um usuário");
-                Console.WriteLine("5 - Quantia armazenada no banco");
-                Console.WriteLine("6 - Manipular a conta");
-                Console.WriteLine("0 - Para sair do programa");
-                Console.Write("Digite a opção desejada: ");
 
-                option = int.Parse(Console.ReadLine());
-
-                Console.WriteLine("-----------------");
-
-                switch (option)
+                do
                 {
-                    case 0:
-                        Console.WriteLine("Estou encerrando o programa...");
-                        break;
-                    case 1:
-                        RegistrarNovoUsuario(cpfs, titulares, senhas, saldos);
-                        break;
-                    case 2:
-                        DeletarUsuario(cpfs, titulares, senhas, saldos);
-                        break;
-                    case 3:
-                        ListarTodasAsContas(cpfs, titulares, saldos);
-                        break;
-                    case 4:
-                        ApresentarUsuario(cpfs, titulares, saldos);
-                        break;
-                    case 5:
-                        QuantiaArmazenada(cpfs, saldos);
-                        break;
-                    case 6:
-                        Operacoes(cpfs, saldos);
-                        break;
+
+                    {
+
+                    }
+                    Console.WriteLine("1 - Inserir novo usuário");
+                    Console.WriteLine("2 - Deletar um usuário");
+                    Console.WriteLine("3 - Listar todas as contas registradas");
+                    Console.WriteLine("4 - Detalhes de um usuário");
+                    Console.WriteLine("5 - Quantia armazenada no banco");
+                    Console.WriteLine("6 - Manipular a conta");
+                    Console.WriteLine("0 - Para sair do programa");
+                    Console.Write("Digite a opção desejada: ");
+
+                    option = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("-----------------");
+
+                    switch (option)
+                    {
+                        case 0:
+                            Console.WriteLine("Estou encerrando o programa...");
+                            break;
+                        case 1:
+                            RegistrarNovoUsuario(cpfs, titulares, senhas, saldos);
+                            break;
+                        case 2:
+                            DeletarUsuario(cpfs, titulares, senhas, saldos);
+                            break;
+                        case 3:
+                            ListarTodasAsContas(cpfs, titulares, saldos);
+                            break;
+                        case 4:
+                            ApresentarUsuario(cpfs, titulares, saldos);
+                            break;
+                        case 5:
+                            QuantiaArmazenada(cpfs, saldos);
+                            break;
+                        case 6:
+                            Operacoes(cpfs, saldos, titulares, senhas);
+                            break;
 
 
 
-                }
+                    }
 
-                Console.WriteLine("-----------------");
+                    Console.WriteLine("-----------------");
 
-            } while (option != 0);
+                } while (option != 0);
+            }else if (usuario == 1)
+            {
+                Console.WriteLine("Digite o Hash para acessar a conta:");
+
+            }
 
 
 
 
-            //    if (opcao == 1)
-            //    {
-            //        Console.WriteLine("Digite o valor desejado para o depósito: ");
-            //        double valorDeposito = double.Parse(Console.ReadLine());
-
-            //        p.depositar(valorDeposito);
-            //        Console.WriteLine($"O valor atual da conta é de {p.conta}R$");
-            //    }
-            //    else if (opcao == 2)
-            //    {
-            //        Console.Write("Digite o valor desejado para saque: ");
-            //        double saque = double.Parse(Console.ReadLine());
-
-            //        if (p.conta < saque)
-            //        {
-            //            Console.WriteLine("Você não possui saldo suficiente");
-            //        }
-            //        else
-            //        {                       
-            //            p.Saque(saque);
-            //        }
-            //    }
-            //}
 
 
 
